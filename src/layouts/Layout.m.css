@@ -1,0 +1,19 @@
+.root {
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 120px;
+	grid-column: 2 / auto;
+	border-radius: 1rem;
+	padding: 3rem 6rem;
+	overflow: hidden;
+}
+
+@media (max-width: 600px) {
+	.root {
+		padding: 2rem 1.5rem;
+	}
+}
+
+@media (max-width: 1200px) {
+	.root {
+		padding: 3rem 2rem;
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"build-app": {
+		"build-time-render": {
+			"root": "root",
+			"paths": ["blog/whats-new-in-typescript-3-5-rc", "home", "blog" ]
+		}
+	},
+	"test-intern": {},
+	"create-app": {},
+	"create-widget": {}
+}
