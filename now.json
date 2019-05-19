@@ -2,5 +2,8 @@
 	"name": "btr-site",
 	"version": 2,
 	"alias": [ "btr-site.now.sh" ],
-	"builds": [ { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "output/dist" } } ]
+	"builds": [
+		{ "src": "package.json", "use": "@now/static-build", "config": { "distDir": "output/dist" } },
+		{ "src": "output/dist/**/*.html", "use": "@now/static" }
+	]
 }
