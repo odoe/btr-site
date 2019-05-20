@@ -1,7 +1,11 @@
 {
 	"compilerOptions": {
-    "baseUrl": ".",
-    "paths": { "*": ["types/*"] },
+		"baseUrl": ".",
+		"paths": {
+			"*": [
+				"types/*"
+			]
+		},
 		"declaration": false,
 		"experimentalDecorators": true,
 		"jsx": "react",
@@ -24,10 +28,17 @@
 		"sourceMap": true,
 		"strict": true,
 		"target": "es5",
-		"types": [ "intern" ]
+		"types": [
+			"intern"
+		]
 	},
 	"include": [
 		"./src/**/*.ts",
-		"./tests/**/*.ts", "src/widgets/header/Header.tsx", "src/App.tsx", "src/pages/Blog.tsx", "src/widgets/About.tsx", "src/main.tsx"
+		"./tests/**/*.ts",
+		"src/widgets/header/Header.tsx",
+		"src/App.tsx",
+		"src/pages/Blog.tsx",
+		"src/widgets/About.tsx",
+		"src/main.tsx"
 	]
 }

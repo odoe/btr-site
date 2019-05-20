@@ -18,7 +18,7 @@ const extendedCSS = {
 export default class Header extends WidgetBase {
 	protected render() {
 		return (
-			<Toolbar classes={extendedCSS} heading="TypeScript Vato" collapseWidth={600}>
+			<Toolbar classes={extendedCSS} heading="Dojo BTR Site" collapseWidth={600}>
 				<Link to="home" classes={[ css.link ]} activeClasses={[ css.selected ]}>
 					Home
 				</Link>

@@ -1,6 +1,0 @@
-{
-	"name": "btr-site",
-	"version": 2,
-	"alias": [ "btr-site.now.sh" ],
-	"builds": [ { "src": "output/dist/**/*", "use": "@now/static" } ]
-}

@@ -1,9 +1,11 @@
-# typescript-vato
+# Dojo BTR Static Blog
 
 This project was generated with the [Dojo CLI](https://github.com/dojo/cli) & [Dojo CLI create app command](https://github.com/dojo/cli-create-app).
 
 Blog site template, heavily ~~copied~~ influenced from [dojo/site repo](https://github.com/dojo/site).
 Built to be a static site tool. Still a work in progress.
+
+[Demo](https://odoe.github.io/btr-site/output/dist)
 
 ## Build
 

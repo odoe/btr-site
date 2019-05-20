@@ -11,7 +11,7 @@ export default class Home extends WidgetBase {
 		return (
 			<main classes={[ css.root ]}>
 				<Content>
-					Welcome to TypeScript Vato!
+					Welcome to Dojo BTR Blog!
 					<p>
 						Just go straight to the blog <Link to="blog">here</Link>, and stop messing around.
 					</p>
