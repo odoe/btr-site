@@ -2,7 +2,6 @@ import WidgetBase from '@dojo/framework/widget-core/WidgetBase';
 import { tsx } from '@dojo/framework/widget-core/tsx';
 import Outlet from '@dojo/framework/routing/Outlet';
 
-import Header from './widgets/header/Header';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 
@@ -12,7 +11,6 @@ export default class App extends WidgetBase {
 	protected render() {
 		return (
 			<Layout>
-				<Header />
 				<Outlet key="home" id="home" renderer={() => <Home />} />
 				<Outlet
 					key="blog"

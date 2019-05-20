@@ -5,7 +5,7 @@ const CONTENT_PATH = join(__dirname, '../../posts');
 
 export default async function({ path }: { path: string }) {
 	const contentPath = join(CONTENT_PATH, path);
-	// TODO: add option to return excerpt from glob post
+	// TODO: add option to return excerpt from blog post
 	// raw content
 	// rawContent = rawContent.split('<!-- more -->')[0];
 

@@ -14,7 +14,7 @@ export interface PostProperties {
 	path: string;
 }
 
-const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const options = { year: 'numeric', month: 'long', day: 'numeric' };
 const dateFormatter = new Intl.DateTimeFormat('en-US', options);
 
 export default class BlogPost extends WidgetBase<PostProperties> {

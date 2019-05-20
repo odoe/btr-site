@@ -9,8 +9,13 @@ const slug = require('rehype-slug');
 const frontmatter = require('remark-frontmatter');
 const parseFrontmatter = require('remark-parse-yaml');
 const rehypePrism = require('@mapbox/rehype-prism');
+const externalLinks = require('remark-external-links')
 
 const { v } = require('@dojo/framework/widget-core/d');
+
+// ---------------------------------------------------------------------------------------
+// Based on https://github.com/dojo/site/blob/master/src/scripts/compile.ts
+// ---------------------------------------------------------------------------------------
 
 export const getLocalFile = async (path: string) => {
 	path = resolve(__dirname, path);
@@ -22,6 +27,7 @@ export const toVNodes = (content: string) => {
 	let counter = 0;
 	const pipeline = unified()
 		.use(markdown as any, { commonmark: true })
+		.use(externalLinks, {target: '_blank', rel: ['nofollow']})
 		.use(frontmatter, 'yaml')
 		.use(remark2rehype)
 		.use(slug)

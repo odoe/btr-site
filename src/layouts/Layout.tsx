@@ -2,16 +2,18 @@ import WidgetBase from '@dojo/framework/widget-core/WidgetBase';
 import { tsx } from '@dojo/framework/widget-core/tsx';
 
 import Footer from '../widgets/footer/Footer';
+import Header from '../widgets/header/Header';
 
 import * as css from './Layout.m.css';
 
 export default class Layout extends WidgetBase {
 	protected render() {
 		return (
-			<div classes={[ css.root ]}>
-				{this.children}
+			<main classes={[ css.root ]}>
+				<Header />
+					{this.children}
 				<Footer />
-			</div>
+			</main>
 		);
 	}
 }

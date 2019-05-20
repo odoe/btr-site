@@ -4,19 +4,17 @@ import Link from '@dojo/framework/routing/Link';
 
 import Content from '../widgets/content/Content';
 
-import * as css from './Home.m.css';
+// import * as css from './Home.m.css';
 
 export default class Home extends WidgetBase {
 	protected render() {
 		return (
-			<main classes={[ css.root ]}>
-				<Content>
-					Welcome to Dojo BTR Blog!
-					<p>
-						Just go straight to the blog <Link to="blog">here</Link>, and stop messing around.
-					</p>
-				</Content>
-			</main>
+			<Content>
+				Welcome to Dojo BTR Blog!
+				<p>
+					Just go straight to the blog <Link to="blog">here</Link>, and stop messing around.
+				</p>
+			</Content>
 		);
 	}
 }
