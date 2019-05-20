@@ -8,10 +8,9 @@ export default class Footer extends WidgetBase {
 	protected render() {
 		const d = new Date();
 		const buildTime = has('build-time-render') ? new Intl.DateTimeFormat('en-US').format(d) : null;
-		const year = has('build-time-render') ? d.getFullYear().toString() : null;
 		return (
 			<footer key="footer" classes={[ css.root ]}>
-				&copy; {year} odoenet. <br />
+				&copy; 2019 odoenet. <br />
 				<a key="odoe" href="https://github.com/odoe/btr-site" target="_blank">
 					GitHub
 				</a>
