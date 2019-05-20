@@ -4,7 +4,7 @@ import { tsx } from '@dojo/framework/widget-core/tsx';
 
 import compileBlogIndex from '../blocks/compile-blog-index.block';
 
-import Post from '../widgets/blog-post/BlogPost';
+import Post from '../templates/blog-post/BlogPost';
 
 import * as css from './Blog.m.css';
 import Outlet from '@dojo/framework/routing/Outlet';

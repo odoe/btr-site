@@ -6,7 +6,7 @@ import compileBlogPost from '../../blocks/compile-blog-post.block';
 
 // import * as css from './BlogPost.m.css';
 import Block from '@dojo/framework/widget-core/meta/Block';
-import Content from '../content/Content';
+import Content from '../../widgets/content/Content';
 
 export interface PostProperties {
 	excerpt?: boolean;
