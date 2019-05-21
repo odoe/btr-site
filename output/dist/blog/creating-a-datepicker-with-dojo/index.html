@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Static blog built with dojo">
 	<link rel="icon" href="/assets/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="../prism.2KjsfOjs.css" />
+	<link rel="stylesheet" type="text/css" href="../../prism.2KjsfOjs.css" />
 <style>/*!
  * 
  * [Dojo](https://dojo.io/)
@@ -282,82 +282,8 @@
 <p>You can see the source code for the complete application on <a href="https://github.com/odoe/dojo-datepicker-sample" target="_blank" rel="nofollow">github</a>.</p>
 <p>I also want to point out that you can try out some Dojo in <a href="https://codesandbox.io" target="_blank" rel="nofollow">codesandbox</a>, although I have had some issues with <code>i18n</code> in the sandbox, which is why this sample isn't provided there.</p>
 <p>Now you can go forward and make some awesome widgets of your own!</p>
-<p>Be sure to <a href="https://learn-dojo.com/sign-up/" target="_blank" rel="nofollow">subscribe to the newsletter</a> at learn-dojo.com and stay up to date with the latest content!</p></div><p><a href="/blog/creating-a-datepicker-with-dojo">READ MORE</a></p></article><hr><article class="Content-m__root__1ITm5"><a href="/blog/up-and-running-with-dojo-cli">Up and running with @dojo/cli</a><p>Rene Rubalcava | August 30, 2018</p><div><p>If you haven't heard, <a href="https://dojo.io/" target="_blank" rel="nofollow">dojo</a> has gotten an upgrade! The latest version of dojo ha some pretty awesome features, not just to build widgets, but it also includes a robust <a href="https://dojo.io/docs/index.html#doc--dojo__framework__v3_0_0__src__i18n__README_md" target="_blank" rel="nofollow">i18n</a> package for your internationalization needs, a nice selection of <a href="https://dojo.io/tutorials/005_form_widgets/" target="_blank" rel="nofollow">out-of-the-box widgets</a> and a pretty nice way to <a href="https://dojo.io/tutorials/007_theming/" target="_blank" rel="nofollow">theme your applications</a>.</p>
-<p>A key tool provided by dojo is the <a href="https://dojo.io/tutorials/000_local_installation/" target="_blank" rel="nofollow">@dojo/cli</a>.</p>
-<p>To get started you will want to use npm to install it globally.</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g @dojo/cli @dojo/cli-create-app
-</code></pre>
-<p>Once it's installed, you can type <code>dojo --help</code> into your command line and you should get this spiffy help message.</p>
-<p><img src="/assets/blog/dojo-cli.png"></p>
-<p><em>Nice</em></p>
-<p>You're one step closer to world domination.</p>
-<p>Now you want to actually create an application, which you do with the following.</p>
-<pre class="language-bash"><code class="language-bash">dojo create app --name awesome-dojo-app
-</code></pre>
-<p>This will take about a minute or so to create your application directory and install all the dependencies for your scaffold application.</p>
-<p>Once it's done, you <code>cd</code> into your application directory and use the following command to run it.</p>
-<pre class="language-bash"><code class="language-bash">dojo build --mode dev --watch --serve
-</code></pre>
-<p>Under the hood, the <code>@dojo/cli</code> is using <a href="https://webpack.js.org/" target="_blank" rel="nofollow">webpack</a> to build and bundle your application. What we're doing here is:</p>
-<ul>
-<li><code>build</code> - command to build the application</li>
-<li><code>--mode dev</code> - use <code>dev</code> mode so that the builds are quicker and not production optimized</li>
-<li><code>--watch</code> - watch for any file changes and recompile</li>
-<li><code>--serve</code> - serve the application in a local server for us</li>
-</ul>
-<p>You should be able to open your browser to <code></code> and you would see the following</p>
-<p><img src="/assets/blog/dojo2.gif"></p>
-<p><em>Success</em></p>
-<p>I'll let you peruse the application provided, but let us take a look at the widget code real quick.</p>
-<pre class="language-ts"><code class="language-ts"><span class="token comment">// src/widgets/HelloWorld.ts</span>
-<span class="token keyword">import</span> <span class="token maybe-class-name">WidgetBase</span> <span class="token keyword">from</span> <span class="token string">'@dojo/framework/widget-core/WidgetBase'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> v <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@dojo/framework/widget-core/d'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> css <span class="token keyword">from</span> <span class="token string">'./styles/helloWorld.m.css'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> logo <span class="token operator">=</span> <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token string">'./../img/logo.svg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token keyword">extends</span> <span class="token class-name">WidgetBase</span> <span class="token punctuation">{</span>
-    <span class="token keyword">protected</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token function">v</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> classes<span class="token punctuation">:</span> css<span class="token punctuation">.</span><span class="token property-access">root</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
-            <span class="token function">v</span><span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> src<span class="token punctuation">:</span> logo<span class="token punctuation">,</span> classes<span class="token punctuation">:</span> css<span class="token punctuation">.</span><span class="token property-access">logo</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token function">v</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> classes<span class="token punctuation">:</span> css<span class="token punctuation">.</span><span class="token property-access">label</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Hello, Dojo 2 World!'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token maybe-class-name">HelloWorld</span><span class="token punctuation">;</span>
-</code></pre>
-<p>You may not notice right away, but it's all <a href="http://www.typescriptlang.org/" target="_blank" rel="nofollow">TypeScript</a>. Notice, in this widget their are no types or interfaces defined, that's because it's all <em>inferred</em> by the TypeScript compiler to make sure it's valid. The <em>power of TypeScript!</em></p>
-<p>Dojo has it's own virtual dom engine for building widgets and uses <em>hyperscript</em> as the default for creating your apps. If you are familiar with <a href="https://reactjs.org/" target="_blank" rel="nofollow">React</a>, hyperscript is what it's like writing it <a href="https://reactjs.org/docs/react-without-jsx.html" target="_blank" rel="nofollow">without the JSX</a>. But the <code>v</code> method is much shorter for dev purposes.</p>
-<p>I really like writing my widgets this way, and I won't go into too much detail on building a widget, I'll cover that in another post and you can read more <a href="https://dojo.io/tutorials/003_creating_widgets/" target="_blank" rel="nofollow">in the dojo tutorials</a>.</p>
-<p>But I do realize, some people really love their JSX, so no worries, you can still use JSX if you want.</p>
-<p>Just change the <code>.ts</code> file extension to <code>.tsx</code> and convert the hyperscript to JSX like this.</p>
-<pre class="language-tsx"><code class="language-tsx"><span class="token comment">// src/widgets/HelloWorld.tsx</span>
-<span class="token keyword">import</span> <span class="token maybe-class-name">WidgetBase</span> <span class="token keyword">from</span> <span class="token string">'@dojo/framework/widget-core/WidgetBase'</span><span class="token punctuation">;</span>
-<span class="token comment">// tslint:disable-next-line</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> tsx <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@dojo/framework/widget-core/tsx"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> css <span class="token keyword">from</span> <span class="token string">'./styles/helloWorld.m.css'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> logo <span class="token operator">=</span> <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token string">'./../img/logo.svg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token keyword">extends</span> <span class="token class-name">WidgetBase</span> <span class="token punctuation">{</span>
-    <span class="token keyword">protected</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">classes</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>css<span class="token punctuation">.</span><span class="token property-access">root</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
-                </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>logo<span class="token punctuation">}</span></span> <span class="token attr-name">classes</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>css<span class="token punctuation">.</span><span class="token property-access">logo</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>img</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
-                </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">classes</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>css<span class="token punctuation">.</span><span class="token property-access">label</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">Hello Dojo!</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
-            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token maybe-class-name">HelloWorld</span><span class="token punctuation">;</span>
-</code></pre>
-<p>We need to import the <code>tsx</code> module so that the JSX can be compiled and the default <code>tslint</code> doesn't like unused modules, so you'll also need to add a comment for <code>tslint</code> to ignore that line.</p>
-<p>But there you go, you still use JSX in your Dojo widgets!</p>
-<p>Be sure to check out the <a href="https://dojo.io/tutorials/" target="_blank" rel="nofollow">dojo tutorials</a> for more great lessons and also the <a href="https://dojo.io/docs.html" target="_blank" rel="nofollow">docs</a> if you really want to dig in!</p></div><p><a href="/blog/up-and-running-with-dojo-cli">READ MORE</a></p></article><hr></main><footer class="Footer-m__root__1zPMX"><span>© 2019 odoenet</span><br><a href="https://github.com/odoe/btr-site" target="_blank">github</a><br><a href="https://dojo.io/" target="_blank">Build with Dojo</a><br><span class="Footer-m__details__2pZwP">Last build: 5/20/2019</span></footer></main></div>
+<p>Be sure to <a href="https://learn-dojo.com/sign-up/" target="_blank" rel="nofollow">subscribe to the newsletter</a> at learn-dojo.com and stay up to date with the latest content!</p></div></article></main><footer class="Footer-m__root__1zPMX"><span>© 2019 odoenet</span><br><a href="https://github.com/odoe/btr-site" target="_blank">github</a><br><a href="https://dojo.io/" target="_blank">Build with Dojo</a><br><span class="Footer-m__details__2pZwP">Last build: 5/20/2019</span></footer></main></div>
 <script>
-window.__public_path__ = window.location.pathname.replace(/blog(\/)?/, '');
-</script><link rel="stylesheet" href="../bootstrap.cf52a460790b177e289f.bundle.css" media="none" onload="if(media!='all')media='all'" /><script type="text/javascript" src="../bootstrap.70eccac38d171b145fd4.bundle.js"></script></body>
+window.__public_path__ = window.location.pathname.replace(/blog\/creating-a-datepicker-with-dojo(\/)?/, '');
+</script><link rel="stylesheet" href="../../bootstrap.cf52a460790b177e289f.bundle.css" media="none" onload="if(media!='all')media='all'" /><script type="text/javascript" src="../../bootstrap.70eccac38d171b145fd4.bundle.js"></script></body>
 </html>

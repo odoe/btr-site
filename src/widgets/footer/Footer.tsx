@@ -4,21 +4,34 @@ import has from '@dojo/framework/has/has';
 
 import * as css from './Footer.m.css';
 
-export default class Footer extends WidgetBase {
+import { FooterLink } from '../../interfaces';
+
+interface FooterProperties {
+	footerLinks: FooterLink[];
+	author: string;
+}
+
+function createLinks(links: FooterLink[]) {
+	return links.map(({ href, text }) => [
+		<a key={href} href={href} target="_blank">
+			{text}
+		</a>,
+		<br />
+	]);
+}
+
+export default class Footer extends WidgetBase<FooterProperties> {
 	protected render() {
+		const { author, footerLinks } = this.properties;
 		const d = new Date();
 		const buildTime = has('build-time-render') ? new Intl.DateTimeFormat('en-US').format(d) : null;
+		const name = has('build-time-render') ? author : null;
+		const links = createLinks(footerLinks);
 		return (
 			<footer key="footer" classes={[ css.root ]}>
-				&copy; 2019 odoenet. <br />
-				<a key="odoe" href="https://github.com/odoe/btr-site" target="_blank">
-					GitHub
-				</a>
+				<span>&copy; 2019 {name}</span>
 				<br />
-				<a key="dojo" href="https://dojo.io/" target="_blank">
-					Built with Dojo
-				</a>
-				<br />
+				{links}
 				<span classes={[ css.details ]} key="footer">
 					Last build: {buildTime}
 				</span>

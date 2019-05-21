@@ -15,10 +15,11 @@ const extendedCSS = {
 	}
 };
 
-export default class Header extends WidgetBase {
+export default class Header extends WidgetBase<{ title: string }> {
 	protected render() {
+		const { title } = this.properties || 'My Site';
 		return (
-			<Toolbar classes={extendedCSS} heading="Dojo BTR Site" collapseWidth={600}>
+			<Toolbar classes={extendedCSS} heading={title} collapseWidth={600}>
 				<Link to="home" classes={[ css.link ]} activeClasses={[ css.selected ]}>
 					Home
 				</Link>

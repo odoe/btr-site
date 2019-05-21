@@ -7,10 +7,12 @@ import Blog from './pages/Blog';
 
 import Layout from './layouts/Layout';
 
-export default class App extends WidgetBase {
+import { AppProperties } from './interfaces';
+
+export default class App extends WidgetBase<AppProperties> {
 	protected render() {
 		return (
-			<Layout>
+			<Layout {...this.properties.siteConfig}>
 				<Outlet key="home" id="home" renderer={() => <Home />} />
 				<Outlet
 					key="blog"

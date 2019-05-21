@@ -6,13 +6,16 @@ import Header from '../widgets/header/Header';
 
 import * as css from './Layout.m.css';
 
-export default class Layout extends WidgetBase {
+import { SiteConfig } from '../interfaces';
+
+export default class Layout extends WidgetBase<SiteConfig> {
 	protected render() {
+		const { title, author, footerLinks } = this.properties;
 		return (
 			<main classes={[ css.root ]}>
-				<Header />
-					{this.children}
-				<Footer />
+				<Header title={title} />
+				{this.children}
+				<Footer {...{ author, footerLinks }} />
 			</main>
 		);
 	}

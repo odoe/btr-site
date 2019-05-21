@@ -9,12 +9,13 @@ import dojo from '@dojo/themes/dojo';
 import '@dojo/themes/dojo/index.css';
 
 import routes from './routes';
+import siteConfig from './site-config';
 import App from './App';
 
 const registry = new Registry();
 registerRouterInjector(routes, registry, { HistoryManager: StateHistory });
 registerThemeInjector(dojo, registry);
 
-const r = renderer(() => <App />);
+const r = renderer(() => <App siteConfig={siteConfig} />);
 const domNode = document.getElementById('root') as HTMLElement;
 r.mount({ registry, domNode });
