@@ -9,12 +9,12 @@ import Post from '../templates/blog-post/BlogPost';
 import * as css from './Blog.m.css';
 import Outlet from '@dojo/framework/routing/Outlet';
 
-export default class Blog extends WidgetBase<any> {
+export default class Blog extends WidgetBase<{ standalone?: boolean }> {
 	protected render() {
 		const { standalone = false } = this.properties;
 		const blogs: any = this.meta(Block).run(compileBlogIndex)({});
 		return (
-			<main classes={[ css.root ]}>
+			<div classes={[ css.root ]}>
 				{!standalone ? (
 					blogs && blogs.map((blog: any) => [ <Post path={blog.file} excerpt />, <hr /> ])
 				) : (
@@ -26,7 +26,7 @@ export default class Blog extends WidgetBase<any> {
 						return <Post path={params.path} />;
 					}}
 				/>
-			</main>
+			</div>
 		);
 	}
 }

@@ -11,6 +11,8 @@ interface FooterProperties {
 	author: string;
 }
 
+const dateFormatter = new Intl.DateTimeFormat('en-US');
+
 function createLinks(links: FooterLink[]) {
 	return links.map(({ href, text }) => [
 		<a key={href} href={href} target="_blank">
@@ -24,7 +26,7 @@ export default class Footer extends WidgetBase<FooterProperties> {
 	protected render() {
 		const { author, footerLinks } = this.properties;
 		const d = new Date();
-		const buildTime = has('build-time-render') ? new Intl.DateTimeFormat('en-US').format(d) : null;
+		const buildTime = has('build-time-render') ? dateFormatter.format(d) : null;
 		const name = has('build-time-render') ? author : null;
 		const links = createLinks(footerLinks);
 		return (

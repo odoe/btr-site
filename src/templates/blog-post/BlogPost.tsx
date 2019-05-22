@@ -10,7 +10,6 @@ import Content from '../../widgets/content/Content';
 
 export interface PostProperties {
 	excerpt?: boolean;
-	standalone?: boolean;
 	path: string;
 }
 
@@ -32,10 +31,10 @@ export default class BlogPost extends WidgetBase<PostProperties> {
 				<p>
 					{post.meta.author} | {date}
 				</p>,
-				post.content
+				excerpt ? post.meta.description : post.content
 			];
 			const readMoreLink = excerpt && (
-				<p>
+				<Content>
 					<Link
 						to="blog-post"
 						params={{
@@ -44,7 +43,7 @@ export default class BlogPost extends WidgetBase<PostProperties> {
 					>
 						READ MORE
 					</Link>
-				</p>
+				</Content>
 			);
 			return (
 				<Content>
