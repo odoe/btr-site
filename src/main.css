@@ -1,16 +1,20 @@
 /* Put your styles and imports here */
-@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
 
 body {
 	margin: 0;
 	padding: 0;
-	font-size: 100%;
-	line-height: 1.75;
-	font-family: 'Merriweather', serif;
+	font-size: 21px;
+  line-height: 32px;
+	font-family: 'EB Garamond', Georgia, serif;
 }
 
 #root {
 	display: grid;
 	grid-template-columns: 1fr minmax(280px, 1000px) 1fr;
 	padding: 0px 1rem;
+}
+
+code[class*=language-], pre[class*=language-] {
+	font-size: 14px;
 }
