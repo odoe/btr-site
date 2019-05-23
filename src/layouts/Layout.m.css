@@ -1,28 +1,25 @@
 .root {
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 120px;
 	grid-column: 2 / auto;
-	padding: 3rem 9rem;
+	padding: 0 9rem;
 	overflow: hidden;
 }
 
 @media (max-width: 600px) {
 	.root {
-		padding: 2rem 1.5rem;
+		padding: 0 1.5rem;
 	}
 	.root article img {
+		display: block;
 		max-width: 300px;
+		margin: 0 auto;
 	}
 }
 
 @media (max-width: 1200px) {
-	.root {
-		padding: 3rem 2rem;
-	}
 	.root article img {
-		max-width: 712px;
+		display: block;
+		max-width: 500px;
+		margin: 0 auto;
 	}
-}
-
-.root article img {
-	max-width: 712px;
 }

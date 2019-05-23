@@ -19,5 +19,5 @@ export default async function(options: any) {
 			meta
 		});
 	}
-	return blogs;
+	return blogs.sort((a, b) => (new Date(a.date) > new Date(b.date) ? 1 : -1));
 }

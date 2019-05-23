@@ -10,7 +10,7 @@ const siteConfig: SiteConfig = {
 		},
 		{
 			href: 'https://dojo.io/',
-			text: 'Build with Dojo'
+			text: 'powered by @dojo'
 		}
 	]
 };
