@@ -34,7 +34,7 @@ export default class BlogPost extends WidgetBase<PostProperties> {
 				excerpt ? post.meta.description : post.content
 			];
 			const readMoreLink = excerpt && (
-				<Content>
+				<Content key={post.meta.title}>
 					<Link
 						to="blog-post"
 						params={{
@@ -46,7 +46,7 @@ export default class BlogPost extends WidgetBase<PostProperties> {
 				</Content>
 			);
 			return (
-				<Content>
+				<Content key={post.meta.title}>
 					<Link
 						to="blog-post"
 						params={{

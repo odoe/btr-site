@@ -19,14 +19,16 @@ export default class Header extends WidgetBase<{ title: string }> {
 	protected render() {
 		const { title } = this.properties || 'My Site';
 		return (
-			<Toolbar classes={extendedCSS} heading={title} collapseWidth={600}>
-				<Link to="home" classes={[ css.link ]} activeClasses={[ css.selected ]}>
-					Home
-				</Link>
-				<Link to="blog" classes={[ css.link ]} activeClasses={[ css.selected ]}>
-					Blog
-				</Link>
-			</Toolbar>
+			<header>
+				<Toolbar classes={extendedCSS} heading={title} collapseWidth={600}>
+					<Link to="home" classes={[ css.link ]} activeClasses={[ css.selected ]}>
+						Home
+					</Link>
+					<Link to="blog" classes={[ css.link ]} activeClasses={[ css.selected ]}>
+						Blog
+					</Link>
+				</Toolbar>
+			</header>
 		);
 	}
 }
