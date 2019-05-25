@@ -2,7 +2,7 @@
 	"build-app": {
 		"build-time-render": {
 			"root": "root",
-			"paths": ["blog/up-and-running-with-dojo-cli", "blog/creating-a-datepicker-with-dojo", "home", "blog" ]
+			"paths": ["blog/dojo-containers", "blog/up-and-running-with-dojo-cli", "blog/creating-a-datepicker-with-dojo", "home", "blog" ]
 		}
 	},
 	"test-intern": {},

@@ -9,7 +9,8 @@ const slug = require('rehype-slug');
 const frontmatter = require('remark-frontmatter');
 const parseFrontmatter = require('remark-parse-yaml');
 const rehypePrism = require('@mapbox/rehype-prism');
-const externalLinks = require('remark-external-links')
+const externalLinks = require('remark-external-links');
+const remarkIframes = require('remark-iframes');
 
 const { v } = require('@dojo/framework/widget-core/d');
 
@@ -27,7 +28,14 @@ export const toVNodes = (content: string) => {
 	let counter = 0;
 	const pipeline = unified()
 		.use(markdown as any, { commonmark: true })
-		.use(externalLinks, {target: '_blank', rel: ['nofollow']})
+		.use(remarkIframes, {
+			'codesandbox.io': {
+				tag: 'iframe',
+				width: '100%',
+				height: 500
+			}
+		})
+		.use(externalLinks, { target: '_blank', rel: [ 'nofollow' ] })
 		.use(frontmatter, 'yaml')
 		.use(remark2rehype)
 		.use(slug)
